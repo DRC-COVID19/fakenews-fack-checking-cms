@@ -5,7 +5,9 @@ import CardHeader from "@material-ui/core/CardHeader";
 
 export default () => (
   <Card>
-    <CardHeader title="Bienvenue dans l'interface d'administration de STOP Corovarisus - Factcheck" />
-    <CardContent>Lorem ipsum sic dolor amet...</CardContent>
+    <CardHeader title="Dashboard" />
+    <CardContent>
+      Bienvenue dans l'interface d'administration de STOP Coronavirus Factcheck
+    </CardContent>
   </Card>
 );

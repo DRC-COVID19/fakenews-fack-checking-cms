@@ -13,6 +13,9 @@ const App = () => (
     dashboard={Dashboard}
   >
     <Resource name="news" list={ListGuesser} edit={EditGuesser} />
+    <Resource name="newslang" list={ListGuesser} edit={EditGuesser} />
+    <Resource name="checks" list={ListGuesser} edit={EditGuesser} />
+    <Resource name="users" list={ListGuesser} edit={EditGuesser} />
   </Admin>
 );
 export default App;
