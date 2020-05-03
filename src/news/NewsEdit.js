@@ -52,7 +52,7 @@ const NewsEdit = ({ onCancel, ...props }) => {
     <div className={classes.root}>
       <div className={classes.title}>
         <Typography variant="h6">
-          {translate("resource.news.detail")}
+          {translate("resources.news.detail")}
         </Typography>
         <IconButton onClick={onCancel}>
           <CloseIcon />
