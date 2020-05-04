@@ -37,7 +37,7 @@ const customEnglishMessages: TranslationMessages = {
     },
   },
   resources: {
-    customers: {
+    users: {
       name: "Customer |||| Customers",
       fields: {
         commands: "Orders",
@@ -66,10 +66,10 @@ const customEnglishMessages: TranslationMessages = {
           "The password confirmation is not the same as the password.",
       },
     },
-    commands: {
+    factchecks: {
       name: "Order |||| Orders",
       amount: "1 order |||| %{smart_count} orders",
-      title: "Order %{reference}",
+      title: "Fact Check %{reference}",
       fields: {
         basket: {
           delivery: "Delivery",
@@ -86,42 +86,6 @@ const customEnglishMessages: TranslationMessages = {
         total_gte: "Min amount",
         status: "Status",
         returned: "Returned",
-      },
-    },
-    invoices: {
-      name: "Invoice |||| Invoices",
-      fields: {
-        date: "Invoice date",
-        customer_id: "Customer",
-        command_id: "Order",
-        date_gte: "Passed Since",
-        date_lte: "Passed Before",
-        total_gte: "Min amount",
-        address: "Address",
-      },
-    },
-    products: {
-      name: "Poster |||| Posters",
-      fields: {
-        category_id: "Category",
-        height_gte: "Min height",
-        height_lte: "Max height",
-        height: "Height",
-        image: "Image",
-        price: "Price",
-        reference: "Reference",
-        stock_lte: "Low Stock",
-        stock: "Stock",
-        thumbnail: "Thumbnail",
-        width_gte: "Min width",
-        width_lte: "Max width",
-        width: "Width",
-      },
-      tabs: {
-        image: "Image",
-        details: "Details",
-        description: "Description",
-        reviews: "Reviews",
       },
     },
     categories: {
@@ -156,21 +120,6 @@ const customEnglishMessages: TranslationMessages = {
         approved_error: "Error: Information not approved",
         rejected_success: "Information rejected",
         rejected_error: "Error: Information not rejected",
-      },
-    },
-    segments: {
-      name: "Segments",
-      fields: {
-        customers: "Customers",
-        name: "Name",
-      },
-      data: {
-        compulsive: "Compulsive",
-        collector: "Collector",
-        ordered_once: "Ordered once",
-        regular: "Regular",
-        returns: "Returns",
-        reviewer: "Reviewer",
       },
     },
   },

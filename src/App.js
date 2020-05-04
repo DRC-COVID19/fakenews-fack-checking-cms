@@ -7,6 +7,7 @@ import "./App.css";
 import authProvider from "./authProvider";
 import Dashboard from "./Dashboard";
 import news from "./news";
+import factchecks from "./factchecks";
 import frenchMessages from "./i18n/fr";
 
 const i18nProvider = polyglotI18nProvider((locale) => {
@@ -26,7 +27,7 @@ const App = () => (
     i18nProvider={i18nProvider}
   >
     <Resource name="news" {...news} />
-    <Resource name="checks" list={ListGuesser} edit={EditGuesser} />
+    <Resource name="checks" {...factchecks} />
     <Resource name="users" list={ListGuesser} edit={EditGuesser} />
   </Admin>
 );

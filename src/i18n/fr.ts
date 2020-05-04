@@ -37,7 +37,7 @@ const customFrenchMessages: TranslationMessages = {
     },
   },
   resources: {
-    customers: {
+    users: {
       name: "Client |||| Clients",
       fields: {
         address: "Rue",
@@ -75,10 +75,10 @@ const customFrenchMessages: TranslationMessages = {
           "La confirmation du mot de passe est différent du mot de passe.",
       },
     },
-    commands: {
+    factchecks: {
       name: "Commande |||| Commandes",
       amount: "1 commande |||| %{smart_count} commandes",
-      title: "Commande n°%{reference}",
+      title: "Fact Check %{reference}",
       fields: {
         basket: {
           delivery: "Frais de livraison",
@@ -97,45 +97,6 @@ const customFrenchMessages: TranslationMessages = {
         returned: "Annulée",
         status: "Etat",
         total_gte: "Montant minimum",
-      },
-    },
-    invoices: {
-      name: "Facture |||| Factures",
-      fields: {
-        id: "Numéro",
-        date: "Date de facture",
-        customer_id: "Client",
-        command_id: "Commande",
-        date_gte: "Emises depuis",
-        date_lte: "Emises avant",
-        address: "Adresse",
-        total_ex_taxes: "Montant HT",
-        delivery_fees: "Frais de livraison",
-        taxes: "TVA",
-      },
-    },
-    products: {
-      name: "Poster |||| Posters",
-      fields: {
-        category_id: "Catégorie",
-        height_gte: "Hauteur mini",
-        height_lte: "Hauteur maxi",
-        height: "Hauteur",
-        image: "Photo",
-        price: "Prix",
-        reference: "Référence",
-        stock_lte: "Stock faible",
-        stock: "Stock",
-        thumbnail: "Aperçu",
-        width_gte: "Largeur mini",
-        width_lte: "Margeur maxi",
-        width: "Largeur",
-      },
-      tabs: {
-        image: "Image",
-        details: "Détails",
-        description: "Description",
-        news: "Informations",
       },
     },
     categories: {
@@ -158,8 +119,11 @@ const customFrenchMessages: TranslationMessages = {
         date_lte: "Publié avant",
         date: "Date",
         comment: "Texte",
-        status: "Statut",
         rating: "Classement",
+        //
+        status: "Statut",
+        description: "Description",
+        location: "Localisation",
       },
       action: {
         accept: "Accepter",
@@ -172,21 +136,6 @@ const customFrenchMessages: TranslationMessages = {
         approved_error: "Erreur: Information non approuvée",
         rejected_success: "Information rejeteé",
         rejected_error: "Erreur: Information non rejetée",
-      },
-    },
-    segments: {
-      name: "Segments",
-      fields: {
-        customers: "Clients",
-        name: "Nom",
-      },
-      data: {
-        compulsive: "Compulsif",
-        collector: "Collectionneur",
-        ordered_once: "A commandé",
-        regular: "Régulier",
-        returns: "A renvoyé",
-        reviewer: "Commentateur",
       },
     },
   },
