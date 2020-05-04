@@ -6,10 +6,10 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { Link, useTranslate, useQueryWithStore } from "react-admin";
+import { Link, useTranslate, useQuery } from "react-admin";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { FieldProps, AppState, FactCheckNewsItem, News } from "../types";
+import { FieldProps, FactCheckNewsItem, News } from "../types";
 
 const useStyles = makeStyles({
   container: { minWidth: "35em", marginLeft: "1em" },
@@ -17,36 +17,28 @@ const useStyles = makeStyles({
   boldCell: { fontWeight: "bold" },
 });
 
+const Loading = () => <div>Loading...</div>;
+const Error = () => <div>Error...</div>;
+
 const NewsRelatedToFactCheck: FC<FieldProps<FactCheckNewsItem>> = ({
   record,
 }) => {
   const classes = useStyles();
   const translate = useTranslate();
 
-  const { loaded, data: news } = useQueryWithStore(
-    {
-      type: "getMany",
-      resource: "news",
-      payload: {
-        ids: record ? record.news.map((item: News) => item._id) : [],
-      },
-    },
-    {},
-    (state: AppState) => {
-      const newsIds = record ? record.news.map((item) => item._id) : [];
-      return newsIds
-        .map<News>(
-          (newsId: string) => state.admin.resources.news.data[newsId] as News
-        )
-        .filter((r) => typeof r !== "undefined")
-        .reduce((prev, next) => {
-          prev[next.id] = next;
-          return prev;
-        }, {} as { [key: string]: News });
-    }
-  );
+  const payload = {
+    ids: record?.news || [],
+  };
 
-  if (!loaded || !record) return null;
+  const { data: news, loading, error } = useQuery({
+    type: "getMany",
+    resource: "news",
+    payload,
+  });
+
+  if (loading) return <Loading />;
+  if (error) return <Error />;
+  if (!news || !record) return null;
 
   return (
     <Paper className={classes.container} elevation={2}>
@@ -65,24 +57,21 @@ const NewsRelatedToFactCheck: FC<FieldProps<FactCheckNewsItem>> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {record.news.map(
-            (item: any) =>
-              news[item._id] && (
-                <TableRow key={item._id}>
-                  <TableCell>
-                    <Link to={`/news/${item._id}`}>
-                      {news[item._id].description.trim(0, 50)}
-                    </Link>
-                  </TableCell>
-                  <TableCell className={classes.rightAlignedCell}>
-                    {news[item._id].location}
-                  </TableCell>
-                  <TableCell className={classes.rightAlignedCell}>
-                    {news[item._id].status}
-                  </TableCell>
-                </TableRow>
-              )
-          )}
+          {news.map((item: News) => (
+            <TableRow key={item._id}>
+              <TableCell>
+                <Link to={`/news/${item._id}`}>
+                  {item.description.slice(0, 140)}
+                </Link>
+              </TableCell>
+              <TableCell className={classes.rightAlignedCell}>
+                {item.location}
+              </TableCell>
+              <TableCell className={classes.rightAlignedCell}>
+                {item.status}
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </Paper>

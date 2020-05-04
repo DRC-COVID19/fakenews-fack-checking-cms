@@ -117,5 +117,5 @@ export interface FactCheck extends Record {
 }
 
 export interface FactCheckNewsItem extends Record {
-  news: News[];
+  news: string[];
 }

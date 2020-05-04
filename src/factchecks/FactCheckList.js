@@ -7,11 +7,9 @@ import {
   EditButton,
   Filter,
   List,
-  NullableBooleanInput,
-  ReferenceInput,
   SearchInput,
   TextField,
-  TextInput,
+  ReferenceInput,
 } from "react-admin";
 import {
   makeStyles,
@@ -37,7 +35,6 @@ const FactCheckFilter = (props) => (
     </ReferenceInput>
     <DateInput source="date_gte" />
     <DateInput source="date_lte" />
-    <TextInput source="total_gte" />
   </Filter>
 );
 
@@ -52,7 +49,7 @@ class TabbedDatagrid extends React.Component {
     { id: "false", name: "false" },
   ];
 
-  state = { draft: [], true: [], false: [] };
+  state = { all: [], draft: [], true: [], false: [] };
 
   static getDerivedStateFromProps(props, state) {
     if (props.ids !== state[props.filterValues.verdict]) {
@@ -68,7 +65,6 @@ class TabbedDatagrid extends React.Component {
 
   render() {
     const { isXSmall, classes, filterValues, ...props } = this.props;
-    console.log(filterValues);
     return (
       <Fragment>
         <Tabs
@@ -78,12 +74,9 @@ class TabbedDatagrid extends React.Component {
           indicatorColor="primary"
           onChange={this.handleChange}
         >
-          {this.tabs.map((choice) => {
-            console.log(choice.id);
-            return (
-              <Tab key={choice.id} label={choice.name} value={choice.id} />
-            );
-          })}
+          {this.tabs.map((choice) => (
+            <Tab key={choice.id} label={choice.name} value={choice.id} />
+          ))}
         </Tabs>
         <Divider />
         {isXSmall ? (

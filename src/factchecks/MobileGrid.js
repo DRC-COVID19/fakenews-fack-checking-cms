@@ -69,26 +69,11 @@ const MobileGrid = ({ ids, data, basePath }) => {
               {translate("resources.reviews.fields.date")}:&nbsp;
               <DateField record={data[id]} source="publishedAt" showTime />
             </span>
-            {/* <span className={classes.cardContentRow}>
-              {translate("resources.commands.fields.basket.total")}
-              :&nbsp;
-              <NumberField
-                record={data[id]}
-                source="total"
-                options={{ style: "currency", currency: "USD" }}
-                className={classes.total}
-              />
-            </span> */}
             <span className={classes.cardContentRow}>
               {translate("resources.commands.fields.status")}
               :&nbsp;
               <TextField source="verdict" record={data[id]} />
             </span>
-            {/* <span className={classes.cardContentRow}>
-              {translate("resources.commands.fields.returned")}
-              :&nbsp;
-              <BooleanField record={data[id]} source="returned" />
-            </span> */}
           </CardContent>
         </Card>
       ))}
