@@ -23,6 +23,7 @@ import {
 import NbItemsField from "./NbItemsField";
 import UserReferenceField from "../users/UserReferenceField";
 import MobileGrid from "./MobileGrid";
+import TabCountField from "./TabCountField";
 
 const FactCheckFilter = (props) => (
   <Filter {...props}>
@@ -78,7 +79,7 @@ class TabbedDatagrid extends React.Component {
           {this.tabs.map((choice) => (
             <Tab
               key={choice.id}
-              icon={<Chip label={this.state[choice.id].length} />}
+              icon={<TabCountField verdict={choice.id} />}
               label={choice.name}
               value={choice.id}
             />
