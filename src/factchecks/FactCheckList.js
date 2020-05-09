@@ -17,6 +17,7 @@ import {
   Divider,
   Tabs,
   Tab,
+  Chip,
 } from "@material-ui/core";
 
 import NbItemsField from "./NbItemsField";
@@ -75,7 +76,12 @@ class TabbedDatagrid extends React.Component {
           onChange={this.handleChange}
         >
           {this.tabs.map((choice) => (
-            <Tab key={choice.id} label={choice.name} value={choice.id} />
+            <Tab
+              key={choice.id}
+              icon={<Chip label={this.state[choice.id].length} />}
+              label={choice.name}
+              value={choice.id}
+            />
           ))}
         </Tabs>
         <Divider />

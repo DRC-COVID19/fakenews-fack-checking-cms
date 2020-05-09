@@ -5,6 +5,7 @@ import {
   TextInput,
   SimpleForm,
   DateField,
+  TextField,
 } from "react-admin";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
@@ -12,9 +13,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import CloseIcon from "@material-ui/icons/Close";
 
 import FactCheckReferenceField from "../factchecks/FactCheckReferenceField";
-// import CustomerReferenceField from "../visitors/CustomerReferenceField";
-// import StarRatingField from "./StarRatingField";
 import NewsEditToolbar from "./NewsEditToolbar";
+import MediaField from "./MediaField";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,11 +68,13 @@ const NewsEdit = ({ onCancel, ...props }) => {
         resource="news"
         toolbar={<NewsEditToolbar />}
       >
-        {/* <CustomerReferenceField formClassName={classes.inlineField} /> */}
         <DateField source="createdAt" formClassName={classes.inlineField} />
         <TextInput source="description" rowsMax={15} multiline fullWidth />
+        <TextInput source="location" rowsMax={15} multiline fullWidth />
+        <TextInput source="links" rowsMax={15} multiline fullWidth />
+        <TextField source="status" rowsMax={15} multiline fullWidth />
+        <MediaField rowsMax={15} multiline fullWidth />
         <FactCheckReferenceField formClassName={classes.inlineField} />
-        {/* <StarRatingField formClassName={classes.inlineField} /> */}
       </SimpleForm>
     </div>
   );

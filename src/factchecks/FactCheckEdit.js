@@ -14,6 +14,7 @@ import RichTextInput from "ra-input-rich-text";
 import { makeStyles } from "@material-ui/core/styles";
 
 import NewsRelatedToFactCheck from "./NewsRelatedToFactCheck";
+import MediaField from "../news/MediaField";
 
 const FactCheckTitle = ({ record }) => {
   const translate = useTranslate();
@@ -64,7 +65,7 @@ const FactCheckEdit = (props) => {
         <TextInput source="checkedFact" multiline />
         <RichTextInput source="scentificArgument" />
         <TextInput source="links" />
-        <TextInput source="media" />
+        <MediaField label="Media" />
       </SimpleForm>
     </Edit>
   );
