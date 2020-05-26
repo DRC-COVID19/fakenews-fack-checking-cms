@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Link, useTranslate, useQuery } from "react-admin";
 import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 import { FieldProps, FactCheckNewsItem, News } from "../types";
 
@@ -42,38 +43,41 @@ const NewsRelatedToFactCheck: FC<FieldProps<FactCheckNewsItem>> = ({
 
   return (
     <Paper className={classes.container} elevation={2}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              {translate("resources.news.fields.description")}
-            </TableCell>
-            <TableCell className={classes.rightAlignedCell}>
-              {translate("resources.news.fields.location")}
-            </TableCell>
-            <TableCell className={classes.rightAlignedCell}>
-              {translate("resources.news.fields.status")}
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {news.map((item: News) => (
-            <TableRow key={item._id}>
+      <Container>
+        <h2>Informations liées</h2>
+        <Table>
+          <TableHead>
+            <TableRow>
               <TableCell>
-                <Link to={`/news/${item._id}`}>
-                  {item.description.slice(0, 140)}
-                </Link>
+                {translate("resources.news.fields.description")}
               </TableCell>
               <TableCell className={classes.rightAlignedCell}>
-                {item.location}
+                {translate("resources.news.fields.location")}
               </TableCell>
               <TableCell className={classes.rightAlignedCell}>
-                {item.status}
+                {translate("resources.news.fields.status")}
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {news.map((item: News) => (
+              <TableRow key={item._id}>
+                <TableCell>
+                  <Link to={`/news/${item._id}`}>
+                    {item.description.slice(0, 140)}
+                  </Link>
+                </TableCell>
+                <TableCell className={classes.rightAlignedCell}>
+                  {item.location}
+                </TableCell>
+                <TableCell className={classes.rightAlignedCell}>
+                  {item.status}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Container>
     </Paper>
   );
 };

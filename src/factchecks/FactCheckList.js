@@ -17,7 +17,6 @@ import {
   Divider,
   Tabs,
   Tab,
-  Chip,
 } from "@material-ui/core";
 
 import NbItemsField from "./NbItemsField";

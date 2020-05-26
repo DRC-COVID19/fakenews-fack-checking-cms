@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "auth0-js": "^9.13.2",
+    "cloudinary-react": "^1.5.0",
     "prop-types": "^15.7.2",
     "ra-data-json-server": "^3.4.1",
     "ra-input-rich-text": "^3.3.1",
@@ -15,7 +17,8 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "superagent": "^5.2.2"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.9",

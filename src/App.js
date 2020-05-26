@@ -9,6 +9,7 @@ import Dashboard from "./Dashboard";
 import news from "./news";
 import factchecks from "./factchecks";
 import frenchMessages from "./i18n/fr";
+import customRoutes from "./routes";
 
 const i18nProvider = polyglotI18nProvider((locale) => {
   if (locale === "en") {
@@ -19,12 +20,14 @@ const i18nProvider = polyglotI18nProvider((locale) => {
 }, "fr");
 
 const dataProvider = jsonServerProvider("http://localhost:5000/api");
+
 const App = () => (
   <Admin
     dataProvider={dataProvider}
     authProvider={authProvider}
     dashboard={Dashboard}
     i18nProvider={i18nProvider}
+    customRoutes={customRoutes}
   >
     <Resource name="news" {...news} />
     <Resource name="checks" {...factchecks} />
